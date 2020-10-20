@@ -1,0 +1,27 @@
+dubbo:
+  application:
+    name: dubbo-springboot-consumer
+  scan:
+    base-packages: com.ql.controller
+  protocol:
+    name: dubbo
+    port: 20990
+  registry:
+    client: curator
+    address: zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183
+  consumer:
+#    mock: true
+    check: false
+
+server:
+  port: 8089
+  servlet:
+    context-path: /
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000

@@ -1,0 +1,13 @@
+server:
+  port: 8088
+dubbo:
+  application:
+    name: dubbo-springboot-provider
+  protocol:
+    name: dubbo
+    port: 20990
+  registry:
+    client: curator
+    address: zookeeper://127.0.0.1:2181?backup=127.0.0.1:2182,127.0.0.1:2183
+  scan:
+    base-packages: com.ql.service.impl
